@@ -1,4 +1,5 @@
 import knexConfig from "../knexfile";
+import { authorLoader, postLoader } from "./loader";
 
 const knex = require("knex")(knexConfig.development);
 
@@ -13,12 +14,12 @@ const resolvers = {
   },
   Post : {
     author: async (parent: any, _: any, ctx: any) => {
-      return await ctx.authorLoader.load(parent.author);
+      return authorLoader.load(parent.author);
     }
   },
   Author: {
     post: async (parent: any, _: any, ctx: any) => {
-      return await ctx.postLoader.load(parent.id);
+      return postLoader.load(parent.id);
     }
   }
 };
