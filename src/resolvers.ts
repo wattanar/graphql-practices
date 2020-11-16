@@ -15,8 +15,7 @@ const resolvers = {
   Mutation: {
     createPost: async (_ : any, { title, body, author } : any) => {
       const createdId = await knex("post").insert({ title, body, author });
-      const post = await knex("post").where("id", createdId).first();
-      return post;
+      return { createdId, title, body, author };
     }
   },
   Post : {
