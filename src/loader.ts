@@ -1,7 +1,7 @@
 import DataLoader from "dataloader";
 import knexConfig from "../knexfile";
 
-const knex = require("knex")(knexConfig.development);
+const knex = require("knex")(knexConfig);
 
 const authorLoader = new DataLoader(async (keys: number[]) => {
   const rows: any[] = await knex("author")

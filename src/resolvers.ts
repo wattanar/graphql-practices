@@ -1,7 +1,7 @@
 import knexConfig from "../knexfile";
 import { authorLoader, postLoader } from "./loader";
 
-const knex = require("knex")(knexConfig.development);
+const knex = require("knex")(knexConfig);
 
 const resolvers = {
   Query: {
