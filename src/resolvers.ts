@@ -12,6 +12,13 @@ const resolvers = {
       return await knex("author").select("*")
     }
   },
+  Mutation: {
+    createPost: async (_ : any, { title, body, author } : any) => {
+      const createdId = await knex("post").insert({ title, body, author });
+      const post = await knex("post").where("id", createdId).first();
+      return post;
+    }
+  },
   Post : {
     author: async (parent: any, _: any, ctx: any) => {
       return authorLoader.load(parent.author);

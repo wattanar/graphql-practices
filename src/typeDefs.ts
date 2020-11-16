@@ -20,7 +20,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    createPost(id: ID!, title: String!, body: String!, author: Int!): Post!
+    createPost(title: String!, body: String!, author: Int!): Post
   }
 `;
 
