@@ -5,7 +5,7 @@ import bcrypt from "bcryptjs";
 import { sign } from "jsonwebtoken";
 import { ACCESS_TOKEN_SECRET, REFRESH_TOKEN_SECRET } from "./constants";
 
-const knex = require("knex")(knexConfig.development);
+const knex = require("knex")(knexConfig);
 
 const resolvers = {
   Query: {
@@ -22,7 +22,17 @@ const resolvers = {
       return await knex("user").select("*").first();
     }
   },
+<<<<<<< HEAD
   Post: {
+=======
+  Mutation: {
+    createPost: async (_ : any, { title, body, author } : any) => {
+      const createdId = await knex("post").insert({ title, body, author });
+      return { createdId, title, body, author };
+    }
+  },
+  Post : {
+>>>>>>> d09c3d860fdb44b0d30ea323cdd1adb678c37744
     author: async (parent: any, _: any, ctx: any) => {
       return authorLoader.load(parent.author);
     },
