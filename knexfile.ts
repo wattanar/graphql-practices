@@ -5,7 +5,7 @@ const knexConfig = {
       filename: "./data/app.db",
     },
     useNullAsDefault: true,
-    debug: ['knex:query']
+    // debug: ['knex:query']
   }
 };
 
